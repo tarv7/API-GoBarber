@@ -1,0 +1,15 @@
+{
+  "name": "workers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "queue": "sucrase-node app.js"
+  },
+  "author": "Thales Augusto",
+  "license": "MIT",
+  "dependencies": {
+    "bee-queue": "^1.2.3",
+    "sucrase": "^3.13.0"
+  }
+}

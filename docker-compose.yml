@@ -13,12 +13,35 @@ services:
 
   mongo:
     image: mongo
+    restart: always
     volumes:
       - ./data:/data/db
     ports:
       - '27017:27017'
     networks:
       - develop-network
+
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    networks:
+      - develop-network
+
+  queue:
+    build:
+      context: .
+      dockerfile: './src/config/docker/queue.dockerfile'
+    working_dir: /usr/src/jobs
+    restart: always
+    command: yarn queue
+    volumes:
+      - .:/usr/src
+    networks:
+      - develop-network
+    depends_on:
+      - redis
 
   app:
     build:
@@ -35,6 +58,7 @@ services:
     depends_on:
       - db
       - mongo
+      - redis
 
 networks:
   develop-network:

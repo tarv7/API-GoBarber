@@ -1,2 +1,4 @@
 node_modules
 npm-debug.log
+data
+jobs/node_modules
