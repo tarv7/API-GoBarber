@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "bee-queue": "^1.2.3",
-    "sucrase": "^3.13.0"
+    "sucrase": "^3.13.0",
+    "dotenv": "^8.2.0"
   }
 }
